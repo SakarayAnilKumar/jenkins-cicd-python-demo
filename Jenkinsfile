@@ -1,9 +1,10 @@
 pipeline {
     agent any
-    tools {
-        // Specify the tool type and the exact label you gave it in the UI configuration
-        python 'Python314' 
-    }
+        // Replace the paths below with the exact paths returned by 'where python'
+        withEnv([
+            'PATH+PYTHON=C:\\Users\\sakar\\AppData\\Local\\Programs\\Python\\Python314',
+            'PATH+PIP=C:\\Users\\sakar\\AppData\\Local\\Programs\\Python\\Python314\\Scripts'
+        ])
     stages {
         stage('Checkout') {
             steps {
