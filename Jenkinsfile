@@ -1,10 +1,6 @@
 pipeline {
     agent any
         // Replace the paths below with the exact paths returned by 'where python'
-        withEnv([
-            'PATH+PYTHON=C:\\Users\\sakar\\AppData\\Local\\Programs\\Python\\Python314',
-            'PATH+PIP=C:\\Users\\sakar\\AppData\\Local\\Programs\\Python\\Python314\\Scripts'
-        ])
     stages {
         stage('Checkout') {
             steps {
@@ -14,6 +10,10 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
+                        withEnv([
+            'PATH+PYTHON=C:\\Users\\sakar\\AppData\\Local\\Programs\\Python\\Python314',
+            'PATH+PIP=C:\\Users\\sakar\\AppData\\Local\\Programs\\Python\\Python314\\Scripts'
+        ])
                 echo 'Installing dependencies...'
                 sh 'python -m pip install -r requirements.txt'
             }
