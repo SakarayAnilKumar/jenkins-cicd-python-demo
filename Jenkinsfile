@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        // Specify the tool type and the exact label you gave it in the UI configuration
+        python 'Python314' 
+    }
     stages {
         stage('Checkout') {
             steps {
